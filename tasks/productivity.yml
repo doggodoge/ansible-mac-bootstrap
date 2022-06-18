@@ -1,0 +1,9 @@
+- name: Install Productivity Tools
+  dnf:
+    name:
+      - neovim
+      - htop
+      - fish
+    state: installed
+  tags:
+    - productivity

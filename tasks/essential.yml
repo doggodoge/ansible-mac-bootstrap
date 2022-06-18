@@ -1,0 +1,7 @@
+- name: Install Essentials
+  dnf:
+    name:
+      - git
+      - exa
+      - bat
+    state: installed

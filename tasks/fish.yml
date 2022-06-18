@@ -1,0 +1,10 @@
+- name: Check fish function folder exists
+  file:
+    name: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
+    state: absent
+
+- name: Clone fish functions
+  git:
+    repo: https://github.com/doggodoge/fish-functions.git
+    dest: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
+    update: yes

@@ -1,0 +1,14 @@
+- name: Install Development Tools
+  dnf:
+    name:
+      - clang
+      - llvm
+      - lld
+      - lldb
+      - musl-devel
+      - musl-clang
+      - musl-gcc
+      - cmake
+      - ninja
+      - python3
+    state: installed
