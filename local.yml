@@ -1,4 +1,5 @@
-- hosts: localhost
+- hosts: all
+  become: yes
   tasks:
     - include: tasks/essential.yml
     - include: tasks/dev-tools.yml

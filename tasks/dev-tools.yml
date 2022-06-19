@@ -9,6 +9,6 @@
       - musl-clang
       - musl-gcc
       - cmake
-      - ninja
+      - ninja-build
       - python3
     state: installed
