@@ -1,5 +1,5 @@
 ---
-- name: Check fish function folder exists
+- name: Ensure fish folder does not exist
   file:
     name: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
     state: absent
