@@ -1,5 +1,6 @@
 ---
 - name: Install Essentials
+  become: yes
   dnf:
     name:
       - git

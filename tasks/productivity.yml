@@ -1,5 +1,6 @@
 ---
 - name: Install Productivity Tools
+  become: yes
   dnf:
     name:
       - neovim

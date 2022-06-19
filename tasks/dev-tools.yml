@@ -1,5 +1,6 @@
 ---
 - name: Install Development Tools
+  become: yes
   dnf:
     name:
       - clang

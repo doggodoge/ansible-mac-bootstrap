@@ -1,11 +1,11 @@
 ---
 - name: Ensure fish folder does not exist
   file:
-    name: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
+    name: "{{ ansible_env.HOME }}/.config/fish/functions"
     state: absent
 
 - name: Clone fish functions
   git:
     repo: https://github.com/doggodoge/fish-functions.git
-    dest: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
+    dest: "{{ ansible_env.HOME }}/.config/fish/functions"
     update: yes
