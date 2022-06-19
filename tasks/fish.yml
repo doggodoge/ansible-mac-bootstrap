@@ -1,3 +1,4 @@
+---
 - name: Check fish function folder exists
   file:
     name: "{{ lookup('env', 'HOME') }}/.config/fish/functions"

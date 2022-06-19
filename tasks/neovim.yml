@@ -1,3 +1,4 @@
+---
 - name: Ensure neovim config path exists
   file:
     path: "{{ lookup('env', 'HOME') }}/.config/nvim"

@@ -1,3 +1,4 @@
+---
 - name: Git perosnal email setup
   git_config:
     name: user.email

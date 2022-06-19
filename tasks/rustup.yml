@@ -1,3 +1,4 @@
+---
 - name: Check if rustup is installed
   shell: command -v cargo
   register: cargo_exists
