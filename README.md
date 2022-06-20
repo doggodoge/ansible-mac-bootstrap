@@ -6,8 +6,7 @@ fedora machine. How to use:
 cd into this repo directory
 
 ```shell
-$ ./install_deps.sh
-$ ansible-playbook local.yml
+$ ./install.sh
 ```
 
 And then you should have a nice new configured install to play with. If you use
