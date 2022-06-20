@@ -2,6 +2,7 @@
   tasks:
     - include: tasks/essential.yml
     - include: tasks/dev-tools.yml
+    - include: tasks/npm.yml
     - include: tasks/rustup.yml
     - include: tasks/productivity.yml
     - include: tasks/git.yml

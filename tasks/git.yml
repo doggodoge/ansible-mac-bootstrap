@@ -3,22 +3,22 @@
   git_config:
     name: user.email
     scope: global
-    value: "madmangaz@gmail.com"
+    value: 'madmangaz@gmail.com'
 
 - name: Git personal setup name
   git_config:
     name: user.name
     scope: global
-    value: "Gary Moore"
+    value: 'Gary Moore'
 
 - name: Git setup init branch
   git_config:
     name: init.defaultBranch
     scope: global
-    value: "main"
+    value: 'main'
 
 - name: Git setup defualt editor
   git_config:
     name: core.editor
     scope: global
-    value: "nvim"
+    value: 'nvim'

@@ -5,7 +5,6 @@
     name:
       - neovim
       - htop
-      - fish
     state: installed
   tags:
     - productivity

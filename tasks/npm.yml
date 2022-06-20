@@ -1,0 +1,27 @@
+---
+- name: 'Install package managers'
+  npm:
+    name: '{{ item }}'
+    global: yes
+    state: latest
+  loop:
+    - yarn
+    - pnpm
+
+- name: Install prettier
+  npm:
+    name: prettier
+    global: yes
+    state: latest
+
+- name: Install TypeScript
+  npm:
+    name: typescript
+    global: yes
+    state: latest
+
+- name: Install marp
+  npm:
+    name: '@marp-team/marp-cli'
+    global: yes
+    state: latest

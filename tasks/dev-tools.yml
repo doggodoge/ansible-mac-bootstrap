@@ -3,6 +3,7 @@
   become: yes
   dnf:
     name:
+      - '@Development Tools'
       - clang
       - llvm
       - lld
@@ -12,5 +13,9 @@
       - musl-gcc
       - cmake
       - ninja-build
-      - python3
+      - fish
     state: installed
+
+- name: Install NodeJS
+  include_role:
+    name: ansible-role-nvm
