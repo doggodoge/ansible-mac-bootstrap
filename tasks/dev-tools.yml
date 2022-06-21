@@ -1,5 +1,5 @@
 ---
-- name: Install Development Tools
+- name: Install Development Tools (dnf)
   become: yes
   dnf:
     name:
@@ -15,7 +15,17 @@
       - ninja-build
       - fish
     state: installed
+  tags: [devtools]
 
-- name: Install NodeJS
+- name: Install Java and Gradle (sdkman)
   include_role:
-    name: ansible-role-nvm
+    name: comcast.sdkman
+  vars:
+    sdkman_user: "{{ ansible_user_id }}"
+    sdkman_group: "{{ ansible_user_id }}"
+    sdkman_auto_answer: true
+    sdkman_update: true
+    sdkman_install_packages:
+      - { candidate: java, version: 17.0.3.fx-zulu }
+      - { candidate: gradle, version: 7.4.2 }
+  tags: [devtools, java]

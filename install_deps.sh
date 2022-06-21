@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-dnf install -y ansible
+sudo dnf install -y ansible
+ansible-galaxy install comcast.sdkman
 
