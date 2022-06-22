@@ -20,6 +20,7 @@
       - ninja-build
       - fish
       - gh
+      - tokei
     state: present
   tags: [devtools]
 
