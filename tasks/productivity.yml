@@ -5,6 +5,6 @@
     name:
       - neovim
       - htop
-    state: installed
+    state: present
   tags:
     - productivity

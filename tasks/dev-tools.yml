@@ -20,7 +20,7 @@
       - ninja-build
       - fish
       - gh
-    state: installed
+    state: present
   tags: [devtools]
 
 - name: Install Java and Gradle (sdkman)

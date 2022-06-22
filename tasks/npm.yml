@@ -3,7 +3,7 @@
   npm:
     name: '{{ item }}'
     global: yes
-    state: latest
+    state: present
   loop:
     - yarn
     - pnpm
@@ -12,16 +12,16 @@
   npm:
     name: prettier
     global: yes
-    state: latest
+    state: present
 
 - name: Install TypeScript
   npm:
     name: typescript
     global: yes
-    state: latest
+    state: present
 
 - name: Install marp
   npm:
     name: '@marp-team/marp-cli'
     global: yes
-    state: latest
+    state: present

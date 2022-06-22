@@ -6,4 +6,4 @@
       - git
       - exa
       - bat
-    state: installed
+    state: present
