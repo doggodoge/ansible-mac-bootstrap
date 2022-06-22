@@ -19,6 +19,7 @@
       - cmake
       - ninja-build
       - fish
+      - gh
     state: installed
   tags: [devtools]
 
