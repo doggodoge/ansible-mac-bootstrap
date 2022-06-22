@@ -6,6 +6,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "local.yml"
   end
+  config.vm.provider "libvirt" do |libvirt|
+    libvirt.cpus = 8
+    libvirt.memory = 4096
+    libvirt.linked_clone = true
+  end
   config.vm.provider "vmware_fusion" do |fusion|
     fusion.cpus = 8
     fusion.memory = 4096
