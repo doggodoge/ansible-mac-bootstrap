@@ -16,3 +16,28 @@ figure out a way to get around this limitation.
 And then you should have a nice new configured install to play with. If you use
 this for yourself I would recommend changing `tasks/git.yml` to reflect your
 github username and email.
+
+## Docker
+
+This does not yet work properly. There's an issue created to track this.
+
+## Vagrant
+
+You can spin up a fedora VM using ansible and vagrant. To do so run:
+
+```shell
+vagrant up
+```
+
+If for whatever reason provisioning fails the first time, you can try again by
+running:
+
+```shell
+vagrant provision
+````
+
+Terminate and delete the VM with:
+
+```shell
+vagrant destroy
+```
