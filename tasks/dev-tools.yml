@@ -24,6 +24,28 @@
     state: present
   tags: [devtools]
 
+- name: Check if deno is installed
+  stat:
+    path: '{{ ansible_env.HOME }}/.deno'
+  register: deno_path_info
+
+- name: Download deno installer
+  get_url:
+    url: https://deno.land/install.sh
+    dest: /tmp/deno_installer.sh
+    mode: 0755
+  when: not deno_path_info.stat.exists
+
+- name: Install deno
+  command: bash -c "/tmp/deno_installer.sh"
+  when: not deno_path_info.stat.exists
+
+- name: Download deno
+  ansible.builtin.get_url:
+    url: https://deno.land/install.sh
+    dest: /tmp/deno_install.sh
+    mode: 0755
+
 - name: Install Java and Gradle (sdkman)
   include_role:
     name: comcast.sdkman
