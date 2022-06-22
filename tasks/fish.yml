@@ -1,4 +1,6 @@
 ---
+# Clone Fish Functions
+
 - name: Check if git repo has already been cloned
   stat:
     path: '{{ ansible_env.HOME }}/.config/fish/functions/.git'

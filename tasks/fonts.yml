@@ -1,0 +1,28 @@
+---
+# Download Fonts
+
+- name: Install fonts (dnf)
+  become: yes
+  dnf:
+    name:
+      - cascadia-code-fonts
+      - cascadia-code-pl-fonts
+      - ibm-plex-fonts-all
+      - fira-code-fonts
+      - adobe-source-code-pro-fonts
+      - google-roboto-mono-fonts
+      - redhat-mono-fonts
+      - levien-inconsolata-fonts
+      - google-go-mono-fonts
+      - jetbrains-mono-fonts
+    state: present
+
+# TODO: Fonts to get in the future
+#  - Anonymous Pro
+#  - Pragmata Pro
+#  - ellograph
+#  - recursive
+#  - D2Coding
+#  - consolamono
+#  - Comic Code
+#  - Cartograph

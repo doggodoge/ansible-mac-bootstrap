@@ -1,4 +1,6 @@
 ---
+# Set neovim config from template file
+
 - name: Ensure neovim config path exists
   file:
     path: '{{ ansible_env.HOME }}/.config/nvim'

@@ -1,14 +1,12 @@
 ---
-- name: Ensure $HOME/Source folder exists
-  file:
-    path: '{{ ansible_env.HOME }}/Source'
-    state: directory
+# Install Development Tools
 
 - name: Install Development Tools (dnf)
   become: yes
   dnf:
     name:
       - '@Development Tools'
+      - swift-lang
       - clang
       - llvm
       - lld
@@ -37,14 +35,15 @@
   when: not deno_path_info.stat.exists
 
 - name: Install deno
-  command: bash -c "/tmp/deno_installer.sh"
-  when: not deno_path_info.stat.exists
+  command:
+    cmd: bash -c "/tmp/deno_installer.sh"
+    creates: '{{ ansible_env.HOME }}/.deno/bin/deno'
 
-- name: Download deno
-  ansible.builtin.get_url:
-    url: https://deno.land/install.sh
-    dest: /tmp/deno_install.sh
-    mode: 0755
+- name: Add deno to PATH
+  lineinfile:
+    line: 'export PATH="$HOME/.deno/bin:$PATH"'
+    path: '{{ ansible_env.HOME }}/.bashrc'
+    insertbefore: '#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!'
 
 - name: Install Java and Gradle (sdkman)
   include_role:

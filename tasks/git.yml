@@ -1,4 +1,6 @@
 ---
+# Set Git Config (global)
+
 - name: Git perosnal email setup
   git_config:
     name: user.email

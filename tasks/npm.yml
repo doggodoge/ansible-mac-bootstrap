@@ -1,4 +1,6 @@
 ---
+# Install commonly used nodejs packages
+
 - name: 'Install package managers'
   npm:
     name: '{{ item }}'

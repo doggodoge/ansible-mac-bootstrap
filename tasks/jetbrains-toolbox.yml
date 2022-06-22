@@ -1,3 +1,7 @@
+---
+# Download JetBrains Toolbox
+# Note: You still need to run toolbox from the /opt folder once
+
 - name: Check if toolbox is already installed
   stat:
     path: /opt/jetbrains-toolbox-1.24.12080
