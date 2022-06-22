@@ -1,5 +1,0 @@
----
-# Enable alt right click resizing
-
-- name: Enable alt right click resizing of windows (gnome)
-  command: 'gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true'

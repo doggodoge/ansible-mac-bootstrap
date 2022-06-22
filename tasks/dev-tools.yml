@@ -2,48 +2,16 @@
 # Install Development Tools
 
 - name: Install Development Tools (dnf)
-  become: yes
-  dnf:
+  homebrew:
     name:
-      - '@Development Tools'
-      - swift-lang
-      - clang
-      - llvm
-      - lld
-      - lldb
-      - musl-devel
-      - musl-clang
-      - musl-gcc
       - cmake
-      - ninja-build
+      - ninja
       - fish
       - gh
       - tokei
+      - deno
     state: present
   tags: [devtools]
-
-- name: Check if deno is installed
-  stat:
-    path: '{{ ansible_env.HOME }}/.deno'
-  register: deno_path_info
-
-- name: Download deno installer
-  get_url:
-    url: https://deno.land/install.sh
-    dest: /tmp/deno_installer.sh
-    mode: 0755
-  when: not deno_path_info.stat.exists
-
-- name: Install deno
-  command:
-    cmd: bash -c "/tmp/deno_installer.sh"
-    creates: '{{ ansible_env.HOME }}/.deno/bin/deno'
-
-- name: Add deno to PATH
-  lineinfile:
-    line: 'export PATH="$HOME/.deno/bin:$PATH"'
-    path: '{{ ansible_env.HOME }}/.bashrc'
-    insertbefore: '#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!'
 
 - name: Install Java and Gradle (sdkman)
   include_role:
@@ -70,9 +38,9 @@
     depth: 1
   when: not nvm_dir_info.stat.exists
 
-- name: Append nvm config to .bashrc
+- name: Append nvm config to .zshrc
   blockinfile:
-    path: '{{ ansible_env.HOME }}/.bashrc'
+    path: '{{ ansible_env.HOME }}/.zshrc'
     block: |
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

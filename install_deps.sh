@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-sudo dnf install -y ansible
+python3 -m pip install --user ansible
 ansible-galaxy install -r requirements.yml

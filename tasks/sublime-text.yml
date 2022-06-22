@@ -1,25 +1,8 @@
 ---
 # Install Sublime Text
 
-- name: Add sublime text gpg key
-  become: yes
-  rpm_key:
-    key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-    state: present
-
-- name: Add sublime repository
-  become: yes
-  yum_repository:
-    name: sublime-text
-    description: Sublime Text - x86_64 - Stable
-    baseurl: https://download.sublimetext.com/rpm/stable/x86_64
-    enabled: yes
-    gpgkey: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-    gpgcheck: yes
-
 - name: Install Sublime Text
-  become: yes
-  dnf:
+  homebrew:
     name: sublime-text
     state: present
   tags: [sublime-text]

@@ -1,28 +1,33 @@
 ---
 # Download Fonts
 
-- name: Install fonts (dnf)
+- name: Install fonts (homebrew)
   become: yes
-  dnf:
+  homewbrew:
     name:
-      - cascadia-code-fonts
-      - cascadia-code-pl-fonts
-      - ibm-plex-fonts-all
-      - fira-code-fonts
-      - adobe-source-code-pro-fonts
-      - google-roboto-mono-fonts
-      - redhat-mono-fonts
-      - levien-inconsolata-fonts
-      - google-go-mono-fonts
-      - jetbrains-mono-fonts
+      - font-cascadia-code
+      - font-cascadia-code-pl
+      - font-ibm-plex
+      - font-ibm-plex-mono
+      - font-fira-code
+      - font-source-code-pro
+      - font-roboto-mono
+      - font-roboto-mono-for-powerline
+      - font-red-hat-mono
+      - font-red-hat-display
+      - font-red-hat-text
+      - font-inconsolata
+      - font-inconsolata-for-powerline
+      - font-go-mono-nerd-font
+      - font-jetbrains-mono
+      - font-anonymous-pro
+      - font-recursive-code
+      - font-d2coding
     state: present
 
 # TODO: Fonts to get in the future
-#  - Anonymous Pro
 #  - Pragmata Pro
 #  - ellograph
-#  - recursive
-#  - D2Coding
 #  - consolamono
 #  - Comic Code
 #  - Cartograph

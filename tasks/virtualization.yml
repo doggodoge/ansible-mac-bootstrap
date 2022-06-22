@@ -9,3 +9,10 @@
       - vagrant
       - vagrant-libvirt
     state: present
+
+- name: Install Virtualization Tools
+  homebrew:
+    name:
+      - qemu
+      - vagrant
+    state: present

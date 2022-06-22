@@ -2,10 +2,10 @@
 # Install Essentials
 
 - name: Install Essentials
-  become: yes
-  dnf:
+  homebrew:
     name:
       - git
       - exa
       - bat
     state: present
+  tags: [essential]

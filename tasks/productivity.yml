@@ -2,11 +2,9 @@
 # Download Productivity Tools like Text Editors
 
 - name: Install Productivity Tools
-  become: yes
-  dnf:
+  homebrew:
     name:
       - neovim
       - htop
     state: present
-  tags:
-    - productivity
+  tags: [productivity]
