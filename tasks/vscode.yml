@@ -9,7 +9,6 @@
   tags:
     - vscode
 
-
 - name: Add VS Code repository
   become: yes
   yum_repository:

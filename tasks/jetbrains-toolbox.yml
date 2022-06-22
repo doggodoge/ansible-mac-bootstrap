@@ -1,0 +1,18 @@
+- name: Check if toolbox is already installed
+  stat:
+    path: /opt/jetbrains-toolbox-1.24.12080
+  register: toolbox_dir_info
+
+- name: Download toolbox
+  get_url:
+    url: 'https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.24.12080.tar.gz'
+    dest: /tmp/jetbrains-toolbox-1.24.12080.tar.gz
+  when: not toolbox_dir_info.stat.exists
+
+- name: Unarchive toolbox
+  become: yes
+  unarchive:
+    src: /tmp/jetbrains-toolbox-1.24.12080.tar.gz
+    dest: /opt
+  when: not toolbox_dir_info.stat.exists
+  tags: [toolbox, devtools]

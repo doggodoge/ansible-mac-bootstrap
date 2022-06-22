@@ -1,4 +1,9 @@
 ---
+- name: Ensure $HOME/Source folder exists
+  file:
+    path: '{{ ansible_env.HOME }}/Source'
+    state: directory
+
 - name: Install Development Tools (dnf)
   become: yes
   dnf:
@@ -21,11 +26,38 @@
   include_role:
     name: comcast.sdkman
   vars:
-    sdkman_user: "{{ ansible_user_id }}"
-    sdkman_group: "{{ ansible_user_id }}"
+    sdkman_user: '{{ ansible_user_id }}'
+    sdkman_group: '{{ ansible_user_id }}'
     sdkman_auto_answer: true
     sdkman_update: true
     sdkman_install_packages:
       - { candidate: java, version: 17.0.3.fx-zulu }
       - { candidate: gradle, version: 7.4.2 }
-  tags: [devtools, java]
+  tags: [devtools, java, gradle]
+
+- name: Check if nvm is installed
+  stat:
+    path: '{{ ansible_env.HOME }}/.nvm'
+  register: nvm_dir_info
+
+- name: Clone node version manager
+  git:
+    repo: https://github.com/nvm-sh/nvm.git
+    dest: '{{ ansible_env.HOME }}/.nvm'
+    depth: 1
+  when: not nvm_dir_info.stat.exists
+
+- name: Append nvm config to .bashrc
+  blockinfile:
+    path: '{{ ansible_env.HOME }}/.bashrc'
+    block: |
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    insertbefore: '#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!'
+  when: not nvm_dir_info.stat.exists
+
+- name: Install NodeJS
+  command: 'bash -c "\. {{ ansible_env.HOME }}/.nvm/nvm.sh && nvm install --lts"'
+  when: not nvm_dir_info.stat.exists
+  tags: [devtools, nodejs]

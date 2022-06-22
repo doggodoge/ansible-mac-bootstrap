@@ -3,11 +3,14 @@
     - import_tasks: tasks/essential.yml
     - import_tasks: tasks/git.yml
     - import_tasks: tasks/dev-tools.yml
-#    - include: tasks/npm.yml
+    - import_tasks: tasks/npm.yml
+    - import_tasks: tasks/jetbrains-toolbox.yml
     - import_tasks: tasks/rustup.yml
     - import_tasks: tasks/productivity.yml
+    - import_tasks: tasks/virtualization.yml
     - import_tasks: tasks/vscode.yml
     - import_tasks: tasks/1password.yml
+    - import_tasks: tasks/games.yml
     - import_tasks: tasks/neovim.yml
     - import_tasks: tasks/fish.yml
     - import_tasks: tasks/gsettings.yml

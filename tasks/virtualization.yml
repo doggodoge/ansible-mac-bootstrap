@@ -1,0 +1,9 @@
+---
+- name: Install virtualization tools
+  become: true
+  dnf:
+    name:
+      - '@Virtualization'
+      - vagrant
+      - vagrant-libvirt
+    state: present
