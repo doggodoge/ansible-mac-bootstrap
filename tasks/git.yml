@@ -5,13 +5,13 @@
   git_config:
     name: user.email
     scope: global
-    value: 'madmangaz@gmail.com'
+    value: '{{ git_email }}'
 
 - name: Git personal setup name
   git_config:
     name: user.name
     scope: global
-    value: 'Gary Moore'
+    value: '{{ git_name }}'
 
 - name: Git setup init branch
   git_config:

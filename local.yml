@@ -4,6 +4,8 @@
 - hosts: localhost
   vars:
     fedora_release_version: 36
+    git_name: Gary Moore
+    git_email: madmangaz@gmail.com
   tasks:
     - import_tasks: tasks/essential.yml
     - import_tasks: tasks/git.yml
