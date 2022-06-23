@@ -1,14 +1,6 @@
 ---
 # Install Virtualization Tools
 
-- name: Install virtualization tools
-  dnf:
-    name:
-      - '@Virtualization'
-      - vagrant
-      - vagrant-libvirt
-    state: present
-
 - name: Install Virtualization Tools
   homebrew:
     name:

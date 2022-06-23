@@ -7,5 +7,6 @@
       - git
       - exa
       - bat
+      - svn
     state: present
   tags: [essential]

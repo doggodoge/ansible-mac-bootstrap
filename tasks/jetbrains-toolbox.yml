@@ -2,7 +2,7 @@
 # Download JetBrains Toolbox
 
 - name: Install JetBrains Toolbox
-  homebrew:
+  homebrew_cask:
     name: jetbrains-toolbox
     state: present
   tags: [toolbox, devtools]

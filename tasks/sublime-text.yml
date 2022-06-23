@@ -2,7 +2,7 @@
 # Install Sublime Text
 
 - name: Install Sublime Text
-  homebrew:
+  homebrew_cask:
     name: sublime-text
     state: present
   tags: [sublime-text]
