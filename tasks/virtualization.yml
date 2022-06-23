@@ -2,7 +2,6 @@
 # Install Virtualization Tools
 
 - name: Install virtualization tools
-  become: true
   dnf:
     name:
       - '@Virtualization'

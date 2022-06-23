@@ -2,7 +2,6 @@
 # Download Fonts
 
 - name: Install fonts (homebrew)
-  become: yes
   homewbrew:
     name:
       - font-cascadia-code
