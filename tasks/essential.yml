@@ -1,6 +1,12 @@
 ---
 # Install Essentials
 
+- name: Install XCode Command Line Tools
+  command:
+    cmd: xcode-select --install
+    creates: /usr/bin/clang
+  tags: [essential]
+
 - name: Install Essentials
   homebrew:
     name:
